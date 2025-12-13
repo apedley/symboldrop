@@ -15,7 +15,7 @@ struct SymbolPickerApp: App {
                 .frame(width: 500, height: 500)
         } label: {
             Label {
-                    Text("SF Symbol Picker")
+                    Text("SymbolDrop")
                 } icon: {
                     let image: NSImage = {
                         let ratio = $0.size.height / $0.size.width

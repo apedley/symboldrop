@@ -42,6 +42,7 @@ struct SymbolGridItemView: View {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(isHovered ? Color.accentColor.opacity(0.1) : Color.clear)
             )
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .onHover { hovering in

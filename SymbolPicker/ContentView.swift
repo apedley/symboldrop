@@ -142,6 +142,7 @@ struct SidebarCategoryButton: View {
             .background(isSelected ? Color.accentColor : Color.clear)
             .foregroundStyle(isSelected ? .white : .primary)
             .cornerRadius(6)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .padding(.horizontal, 6)

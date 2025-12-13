@@ -24,7 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		49A62D952EEACA6E00DD6432 /* SymbolPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymbolPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49A62D952EEACA6E00DD6432 /* SymbolDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymbolDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A62DA42EEACA6F00DD6432 /* SymbolPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymbolPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A62DAE2EEACA6F00DD6432 /* SymbolPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymbolPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 		49A62D962EEACA6E00DD6432 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49A62D952EEACA6E00DD6432 /* SymbolPicker.app */,
+				49A62D952EEACA6E00DD6432 /* SymbolDrop.app */,
 				49A62DA42EEACA6F00DD6432 /* SymbolPickerTests.xctest */,
 				49A62DAE2EEACA6F00DD6432 /* SymbolPickerUITests.xctest */,
 			);
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		49A62D942EEACA6E00DD6432 /* SymbolPicker */ = {
+		49A62D942EEACA6E00DD6432 /* SymbolDrop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 49A62DB82EEACA6F00DD6432 /* Build configuration list for PBXNativeTarget "SymbolPicker" */;
+			buildConfigurationList = 49A62DB82EEACA6F00DD6432 /* Build configuration list for PBXNativeTarget "SymbolDrop" */;
 			buildPhases = (
 				49A62D912EEACA6E00DD6432 /* Sources */,
 				49A62D922EEACA6E00DD6432 /* Frameworks */,
@@ -110,11 +110,11 @@
 			fileSystemSynchronizedGroups = (
 				49A62D972EEACA6E00DD6432 /* SymbolPicker */,
 			);
-			name = SymbolPicker;
+			name = SymbolDrop;
 			packageProductDependencies = (
 			);
 			productName = SymbolPicker;
-			productReference = 49A62D952EEACA6E00DD6432 /* SymbolPicker.app */;
+			productReference = 49A62D952EEACA6E00DD6432 /* SymbolDrop.app */;
 			productType = "com.apple.product-type.application";
 		};
 		49A62DA32EEACA6F00DD6432 /* SymbolPickerTests */ = {
@@ -171,7 +171,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					49A62D942EEACA6E00DD6432 = {
 						CreatedOnToolsVersion = 26.1.1;
@@ -200,7 +200,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				49A62D942EEACA6E00DD6432 /* SymbolPicker */,
+				49A62D942EEACA6E00DD6432 /* SymbolDrop */,
 				49A62DA32EEACA6F00DD6432 /* SymbolPickerTests */,
 				49A62DAD2EEACA6F00DD6432 /* SymbolPickerUITests */,
 			);
@@ -258,12 +258,12 @@
 /* Begin PBXTargetDependency section */
 		49A62DA62EEACA6F00DD6432 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 49A62D942EEACA6E00DD6432 /* SymbolPicker */;
+			target = 49A62D942EEACA6E00DD6432 /* SymbolDrop */;
 			targetProxy = 49A62DA52EEACA6F00DD6432 /* PBXContainerItemProxy */;
 		};
 		49A62DB02EEACA6F00DD6432 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 49A62D942EEACA6E00DD6432 /* SymbolPicker */;
+			target = 49A62D942EEACA6E00DD6432 /* SymbolDrop */;
 			targetProxy = 49A62DAF2EEACA6F00DD6432 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -303,6 +303,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -328,6 +329,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -367,6 +369,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -385,6 +388,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -394,15 +398,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = shapes;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SymbolDrop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -410,7 +419,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.andrewpedley.SymbolPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = name.andrewpedley.symboldrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -427,15 +436,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = shapes;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SymbolDrop;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,7 +457,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = name.andrewpedley.SymbolPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = name.andrewpedley.symboldrop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -461,6 +475,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
@@ -482,6 +497,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.1;
@@ -502,6 +518,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -521,6 +538,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ZN2L9P7MD4;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -547,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		49A62DB82EEACA6F00DD6432 /* Build configuration list for PBXNativeTarget "SymbolPicker" */ = {
+		49A62DB82EEACA6F00DD6432 /* Build configuration list for PBXNativeTarget "SymbolDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				49A62DB92EEACA6F00DD6432 /* Debug */,
