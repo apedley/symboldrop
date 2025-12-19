@@ -10,15 +10,35 @@ final class SymbolBrowserViewModel {
 
     private let allSymbols: [SFSymbol] = SFSymbols.allSymbols
 
+    private static let recentSymbolsKey = "recentSymbolIDs"
+    private static let maxRecentSymbols = 20
+
+    private(set) var recentSymbolIDs: [String] {
+        didSet {
+            UserDefaults.standard.set(recentSymbolIDs, forKey: Self.recentSymbolsKey)
+        }
+    }
+
+    init() {
+        self.recentSymbolIDs = UserDefaults.standard.stringArray(forKey: Self.recentSymbolsKey) ?? []
+    }
+
     // Cache mapping symbol names to their Unicode characters
     private static var symbolToCharacter: [String: String]?
 
     var filteredSymbols: [SFSymbol] {
-        var result = allSymbols
+        var result: [SFSymbol]
 
         // Filter by category
-        if selectedCategory != .all {
-            result = result.filter { $0.category == selectedCategory }
+        if selectedCategory == .recent {
+            // Return symbols in recent order (most recent first)
+            result = recentSymbolIDs.compactMap { id in
+                allSymbols.first { $0.id == id }
+            }
+        } else if selectedCategory != .all {
+            result = allSymbols.filter { $0.category == selectedCategory }
+        } else {
+            result = allSymbols
         }
 
         // Filter by search
@@ -48,6 +68,7 @@ final class SymbolBrowserViewModel {
             pasteboard.setString(symbol.name, forType: .string)
         }
 
+        addToRecents(symbol)
         lastCopiedSymbol = symbol
         resetCopiedSymbolAfterDelay(symbol)
     }
@@ -57,8 +78,19 @@ final class SymbolBrowserViewModel {
         pasteboard.clearContents()
         pasteboard.setString(symbol.name, forType: .string)
 
+        addToRecents(symbol)
         lastCopiedSymbol = symbol
         resetCopiedSymbolAfterDelay(symbol)
+    }
+
+    private func addToRecents(_ symbol: SFSymbol) {
+        var recents = recentSymbolIDs
+        recents.removeAll { $0 == symbol.id }
+        recents.insert(symbol.id, at: 0)
+        if recents.count > Self.maxRecentSymbols {
+            recents = Array(recents.prefix(Self.maxRecentSymbols))
+        }
+        recentSymbolIDs = recents
     }
 
     private func resetCopiedSymbolAfterDelay(_ symbol: SFSymbol) {

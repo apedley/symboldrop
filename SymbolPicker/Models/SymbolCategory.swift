@@ -2,6 +2,7 @@ import Foundation
 
 enum SymbolCategory: String, CaseIterable, Identifiable {
     case all = "All"
+    case recent = "Recent"
     case general = "General"
     case communication = "Communication"
     case weather = "Weather"
@@ -32,6 +33,7 @@ enum SymbolCategory: String, CaseIterable, Identifiable {
     var icon: String {
         switch self {
         case .all: return "square.grid.2x2"
+        case .recent: return "clock.arrow.circlepath"
         case .general: return "star"
         case .communication: return "message"
         case .weather: return "cloud.sun"
