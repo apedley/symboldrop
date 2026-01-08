@@ -1,4 +1,4 @@
-# SymbolPicker
+# SymbolDrop
 
 A lightweight macOS menu bar app for browsing and copying SF Symbols. Unapologetically vibe coded as an alternative to the paid options in the App Store.
 
