@@ -167,6 +167,14 @@ final class SymbolBrowserViewModel {
     }
   }
 
+  func getRelatedSymbols(for symbol: SFSymbol) -> [SFSymbol] {
+    let baseName = symbol.name.split(separator: ".").first.map(String.init) ?? symbol.name
+    return allSymbols.filter { other in
+      other.id != symbol.id &&
+      (other.name.hasPrefix(baseName + ".") || other.name == baseName)
+    }
+  }
+
   private func resetCopiedSymbolAfterDelay(_ symbol: SFSymbol) {
     Task {
       try? await Task.sleep(for: .seconds(1.5))

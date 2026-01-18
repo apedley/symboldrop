@@ -5,9 +5,11 @@ struct SymbolGridItemView: View {
   let symbol: SFSymbol
   let isCopied: Bool
   let isFavorite: Bool
+  let hasRelated: Bool
   let onCopy: () -> Void
   let onCopyName: () -> Void
   let onToggleFavorite: () -> Void
+  let onShowRelated: () -> Void
 
   @State private var isHovered = false
 
@@ -17,7 +19,7 @@ struct SymbolGridItemView: View {
         ZStack {
           Image(systemName: symbol.name)
             .font(.system(size: 24))
-            .frame(width: 44, height: 44)
+            .frame(width: 44, height: 44, alignment: .centerFirstTextBaseline)
             .foregroundStyle(isCopied ? .green : .primary)
 
           // Favorite star - top-left, visible on hover or when favorited
@@ -37,6 +39,17 @@ struct SymbolGridItemView: View {
               .font(.system(size: 16))
               .foregroundStyle(.green)
               .offset(x: 16, y: -16)
+          }
+
+          // Related symbols button - top-right (only when hovering and has related, not when copied)
+          if isHovered && hasRelated && !isCopied {
+            Button(action: onShowRelated) {
+              Image(systemName: "square.on.square")
+                .font(.system(size: 12))
+                .foregroundStyle(.secondary)
+            }
+            .buttonStyle(.plain)
+            .offset(x: 20, y: -16)
           }
         }
 
@@ -127,25 +140,31 @@ extension View {
       symbol: SFSymbol(id: "heart.slash.circle", category: .general),
       isCopied: false,
       isFavorite: false,
+      hasRelated: true,
       onCopy: {},
       onCopyName: {},
-      onToggleFavorite: {}
+      onToggleFavorite: {},
+      onShowRelated: {}
     )
     SymbolGridItemView(
       symbol: SFSymbol(id: "heart", category: .general),
       isCopied: false,
       isFavorite: false,
+      hasRelated: true,
       onCopy: {},
       onCopyName: {},
-      onToggleFavorite: {}
+      onToggleFavorite: {},
+      onShowRelated: {}
     )
     SymbolGridItemView(
       symbol: SFSymbol(id: "heart.fill", category: .general),
       isCopied: true,
       isFavorite: true,
+      hasRelated: false,
       onCopy: {},
       onCopyName: {},
-      onToggleFavorite: {}
+      onToggleFavorite: {},
+      onShowRelated: {}
     )
   }
   .padding()

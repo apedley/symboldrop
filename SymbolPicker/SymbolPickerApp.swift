@@ -21,6 +21,7 @@ struct SymbolPickerApp: App {
           let ratio = $0.size.height / $0.size.width
           $0.size.height = 18
           $0.size.width = 18 / ratio
+          $0.isTemplate = true
           return $0
         }(NSImage(named: "MenuBarIcon")!)
 

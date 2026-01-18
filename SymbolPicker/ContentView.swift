@@ -48,6 +48,7 @@ struct ContentView: View {
   @State private var viewModel = SymbolBrowserViewModel()
   @FocusState private var isSearchFocused: Bool
   @State private var showSettings = false
+  @State private var symbolForRelated: SFSymbol?
   @AppStorage("windowWidth") private var windowWidth: Double = 550
   @AppStorage("windowHeight") private var windowHeight: Double = 550
 
@@ -159,6 +160,7 @@ struct ContentView: View {
                 symbol: symbol,
                 isCopied: viewModel.lastCopiedSymbol?.id == symbol.id,
                 isFavorite: viewModel.isFavorite(symbol),
+                hasRelated: !viewModel.getRelatedSymbols(for: symbol).isEmpty,
                 onCopy: {
                   viewModel.copySymbol(symbol)
                 },
@@ -167,12 +169,18 @@ struct ContentView: View {
                 },
                 onToggleFavorite: {
                   viewModel.toggleFavorite(symbol)
+                },
+                onShowRelated: {
+                  symbolForRelated = symbol
                 }
               )
             }
           }
           .padding(.horizontal, 6)
           .padding(.vertical, 6)
+        }
+        .popover(item: $symbolForRelated) { symbol in
+          RelatedSymbolsView(symbol: symbol, viewModel: viewModel)
         }
       }
       } // end HStack
