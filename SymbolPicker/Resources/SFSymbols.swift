@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 // Comprehensive SF Symbols list organized by category
@@ -78,7 +79,10 @@ enum SFSymbols {
         // Fitness
         symbols.append(contentsOf: fitness.map { SFSymbol(id: $0, category: .fitness) })
 
-        return symbols
+        // Filter out symbols not available on the current macOS version
+        return symbols.filter {
+            NSImage(systemSymbolName: $0.name, accessibilityDescription: nil) != nil
+        }
     }()
 
     // MARK: - General

@@ -128,8 +128,9 @@ struct ContentView: View {
             showSettings.toggle()
           } label: {
             Image(systemName: "gear")
+              .font(.system(size: 18))
               .foregroundStyle(.secondary)
-              .frame(width: 32, height: 32)
+              .frame(width: 36, height: 36)
           }
           .buttonStyle(.plain)
           .popover(isPresented: $showSettings) {
